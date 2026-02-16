@@ -31,13 +31,15 @@ jobs:
     needs: ci
 
     steps:
-      - name: Deploy to server folder
-        run: |
-          cd D:\pipeline_demo_3
-          git pull origin main
-          npm install
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Restart app
+      - name: Install dependencies
+        run: npm install
+
+      - name: Restart app with PM2
         shell: powershell
         run: |
+          pm2 delete pipeline-app -s
           pm2 start index.js --name pipeline-app
+          pm2 save
