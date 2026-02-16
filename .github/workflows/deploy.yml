@@ -1,0 +1,49 @@
+name: Clean CI + CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build --if-present
+
+  cd:
+    name: Continuous Deployment
+    runs-on: self-hosted
+    needs: ci
+
+    steps:
+      - name: Deploy to server folder
+        run: |
+          cd D:\pipeline_demo_3
+          git pull origin main
+          npm install
+
+      - name: Restart app
+        shell: powershell
+        run: |
+          pm2 describe pipeline-app > $null 2>&1
+          if ($LASTEXITCODE -ne 0) {
+            cd D:\pipeline_demo_3
+            pm2 start index.js --name pipeline-app
+          } else {
+            pm2 restart pipeline-app
+          }
