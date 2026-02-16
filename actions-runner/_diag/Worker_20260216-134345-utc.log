@@ -1,0 +1,1638 @@
+[2026-02-16 13:43:45Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'Credentials': 'D:\pipeline_demo_3\actions-runner\.credentials'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'Runner': 'D:\pipeline_demo_3\actions-runner\.runner'
+[2026-02-16 13:43:45Z INFO Worker] Version: 2.331.0
+[2026-02-16 13:43:45Z INFO Worker] Commit: 39f6c643d3032f8795fa71f1482731ca90c8e038
+[2026-02-16 13:43:45Z INFO Worker] Culture: en-IN
+[2026-02-16 13:43:45Z INFO Worker] UI Culture: en-US
+[2026-02-16 13:43:45Z INFO Worker] Waiting to receive the job message from the channel.
+[2026-02-16 13:43:45Z INFO ProcessChannel] Receiving message of length 20030, with hash '1ad77a9c364f504c1a7763ee19ec24946a8083c939433cb8d9e107ba2257f1bc'
+[2026-02-16 13:43:45Z INFO Worker] Message received.
+[2026-02-16 13:43:45Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/deploy.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 34,
+        "col": 15,
+        "lit": "Deploy to server folder"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 35,
+              "col": 14,
+              "lit": "cd D:\\pipeline_demo_3\ngit pull origin main\nnpm install\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "00ec94a8-a14d-4912-99d1-9851f9ef3d2a",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 40,
+        "col": 15,
+        "lit": "Restart app"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 42,
+              "col": 14,
+              "lit": "pm2 describe pipeline-app > $null 2>&1\nif ($LASTEXITCODE -ne 0) {\n  cd D:\\pipeline_demo_3\n  pm2 start index.js --name pipeline-app\n} else {\n  pm2 restart pipeline-app\n}\n"
+            }
+          },
+          {
+            "key": "shell",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 41,
+              "col": 16,
+              "lit": "powershell"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "5fbe60c0-295a-4b51-b088-93d0968b3abe",
+      "name": "__run_2"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_container_action_runner_temp": {
+      "value": "true"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_runner_compare_workflow_parser": {
+      "value": "false"
+    },
+    "actions_set_orchestration_id_env_for_actions": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "cd"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "cbbd6f47-19c1-4144-bf6d-7031bca0ad4d.cd.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "Continuous Deployment"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "cbbd6f47-19c1-4144-bf6d-7031bca0ad4d",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "cbbd6f47-19c1-4144-bf6d-7031bca0ad4d",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "05c71ffe-c069-5f4a-a4fa-af56bb49552c",
+  "jobDisplayName": "Continuous Deployment",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/Nqfm9UrxNN0Zm69c6QZlFUIEyzGys82Pcf5qKEKJs17PiL2t29/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus2.actions.githubusercontent.com/Nqfm9UrxNN0Zm69c6QZlFUIEyzGys82Pcf5qKEKJs17PiL2t29/",
+          "GenerateIdTokenUrl": "",
+          "ConnectivityChecks": "[\"https://broker.actions.githubusercontent.com/health\",\"https://token.actions.githubusercontent.com/ready\",\"https://run.actions.githubusercontent.com/health\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-2-azure-eastus.actions.githubusercontent.com/174/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "9fb6770d8d993120f1660079d28247f2b9856dc3"
+        },
+        {
+          "k": "repository",
+          "v": "KaruppaiahAlagu/pipeline_demo_3"
+        },
+        {
+          "k": "repository_owner",
+          "v": "KaruppaiahAlagu"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "195752324"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/KaruppaiahAlagu/pipeline_demo_3.git"
+        },
+        {
+          "k": "run_id",
+          "v": "22064918603"
+        },
+        {
+          "k": "run_number",
+          "v": "1"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "2"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "195752324"
+        },
+        {
+          "k": "actor",
+          "v": "KaruppaiahAlagu"
+        },
+        {
+          "k": "workflow",
+          "v": "Clean CI + CD"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "9fb6770d8d993120f1660079d28247f2b9856dc3"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "4b95b6001a4c7e6b777832621f1da17ba6542200"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "akaruppaiah@CEIIND.COM"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Karuppaiah Alagu"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "akaruppaiah@CEIIND.COM"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Karuppaiah Alagu"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "9fb6770d8d993120f1660079d28247f2b9856dc3"
+                        },
+                        {
+                          "k": "message",
+                          "v": "added actions"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-02-16T19:08:00+05:30"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "88489bfbc04cb6501557bfb5cdfc5c58ecb149be"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/KaruppaiahAlagu/pipeline_demo_3/commit/9fb6770d8d993120f1660079d28247f2b9856dc3"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/KaruppaiahAlagu/pipeline_demo_3/compare/4b95b6001a4c...9fb6770d8d99"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "akaruppaiah@CEIIND.COM"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Karuppaiah Alagu"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "akaruppaiah@CEIIND.COM"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Karuppaiah Alagu"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "9fb6770d8d993120f1660079d28247f2b9856dc3"
+                    },
+                    {
+                      "k": "message",
+                      "v": "added actions"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2026-02-16T19:08:00+05:30"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "88489bfbc04cb6501557bfb5cdfc5c58ecb149be"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/KaruppaiahAlagu/pipeline_demo_3/commit/9fb6770d8d993120f1660079d28247f2b9856dc3"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "akaruppaiah@ceiamerica.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "KaruppaiahAlagu"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/KaruppaiahAlagu/pipeline_demo_3.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1771248825.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "KaruppaiahAlagu/pipeline_demo_3"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/KaruppaiahAlagu/pipeline_demo_3.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pull_requests",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/KaruppaiahAlagu/pipeline_demo_3"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1159231357.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "pipeline_demo_3"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDORRh3fQ"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/195752324?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "akaruppaiah@ceiamerica.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/KaruppaiahAlagu"
+                          },
+                          {
+                            "k": "id",
+                            "v": 195752324.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "KaruppaiahAlagu"
+                          },
+                          {
+                            "k": "name",
+                            "v": "KaruppaiahAlagu"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDOC6rxhA"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/KaruppaiahAlagu"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pull_request_creation_policy",
+                      "v": "all"
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1771249086.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:KaruppaiahAlagu/pipeline_demo_3.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/KaruppaiahAlagu/pipeline_demo_3"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2026-02-16T13:35:36Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/KaruppaiahAlagu/pipeline_demo_3"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/195752324?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/KaruppaiahAlagu"
+                    },
+                    {
+                      "k": "id",
+                      "v": 195752324.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "KaruppaiahAlagu"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDOC6rxhA"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/KaruppaiahAlagu"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "KaruppaiahAlagu/pipeline_demo_3/.github/workflows/deploy.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "9fb6770d8d993120f1660079d28247f2b9856dc3"
+        },
+        {
+          "k": "repository_id",
+          "v": "1159231357"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "KaruppaiahAlagu"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 63754722352.0
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ci",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "result",
+                "v": "success"
+              },
+              {
+                "k": "outputs",
+                "v": {
+                  "t": 2
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "billingOwnerId": "U_kgDOC6rxhA"
+}
+[2026-02-16 13:43:45Z INFO JobRunner] Job ID 05c71ffe-c069-5f4a-a4fa-af56bb49552c
+[2026-02-16 13:43:45Z INFO ConfigurationStore] currentAssemblyLocation: D:\pipeline_demo_3\actions-runner\bin\Runner.Worker.dll
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO ConfigurationStore] binPath: D:\pipeline_demo_3\actions-runner\bin
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO ConfigurationStore] RootFolder: D:\pipeline_demo_3\actions-runner
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'Runner': 'D:\pipeline_demo_3\actions-runner\.runner'
+[2026-02-16 13:43:45Z INFO ConfigurationStore] ConfigFilePath: D:\pipeline_demo_3\actions-runner\.runner
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'MigratedRunner': 'D:\pipeline_demo_3\actions-runner\.runner_migrated'
+[2026-02-16 13:43:45Z INFO ConfigurationStore] MigratedConfigFilePath: D:\pipeline_demo_3\actions-runner\.runner_migrated
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'Credentials': 'D:\pipeline_demo_3\actions-runner\.credentials'
+[2026-02-16 13:43:45Z INFO ConfigurationStore] CredFilePath: D:\pipeline_demo_3\actions-runner\.credentials
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'MigratedCredentials': 'D:\pipeline_demo_3\actions-runner\.credentials_migrated'
+[2026-02-16 13:43:45Z INFO ConfigurationStore] MigratedCredFilePath: D:\pipeline_demo_3\actions-runner\.credentials_migrated
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'Service': 'D:\pipeline_demo_3\actions-runner\.service'
+[2026-02-16 13:43:45Z INFO ConfigurationStore] ServiceConfigFilePath: D:\pipeline_demo_3\actions-runner\.service
+[2026-02-16 13:43:45Z INFO ConfigurationStore] Read setting file: 401 chars
+[2026-02-16 13:43:45Z INFO JobRunner] Initializing launch client
+[2026-02-16 13:43:45Z INFO JobServerQueue] Initializing results client
+[2026-02-16 13:43:45Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2026-02-16 13:43:45Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2026-02-16 13:43:45Z INFO JobServerQueue] Start process web console line queue.
+[2026-02-16 13:43:45Z INFO JobServerQueue] Start process file upload queue.
+[2026-02-16 13:43:45Z INFO JobServerQueue] Start results file upload queue.
+[2026-02-16 13:43:45Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-02-16 13:43:45Z INFO JobServerQueue] Start process timeline update queue.
+[2026-02-16 13:43:45Z INFO ExecutionContext] Initializing Job context
+[2026-02-16 13:43:45Z INFO ExecutionContext] Initialize GitHub context
+[2026-02-16 13:43:45Z INFO ExecutionContext] Initialize Env context
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO JobRunner] Starting the job execution context.
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO JobRunner] Validating directory permissions for: 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Tools': 'D:\pipeline_demo_3\actions-runner\_work\_tool'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Temp': 'D:\pipeline_demo_3\actions-runner\_work\_temp'
+[2026-02-16 13:43:45Z INFO JobRunner] Getting job extension.
+[2026-02-16 13:43:45Z INFO JobRunner] Initialize job. Getting all job steps.
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'Credentials': 'D:\pipeline_demo_3\actions-runner\.credentials'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known config file 'SetupInfo': 'D:\pipeline_demo_3\actions-runner\.setup_info'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO PipelineDirectoryManager] Loading tracking config if exists: D:\pipeline_demo_3\actions-runner\_work\_PipelineMapping\KaruppaiahAlagu/pipeline_demo_3\PipelineFolder.json
+[2026-02-16 13:43:45Z INFO PipelineDirectoryManager] Updating job run properties.
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO JobExtension] Downloading actions
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Actions': 'D:\pipeline_demo_3\actions-runner\_work\_actions'
+[2026-02-16 13:43:45Z INFO JobExtension] Adding .
+[2026-02-16 13:43:45Z INFO JobExtension] Adding .
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:45Z INFO JobExtension] Total accessible running process: 503.
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO JobExtension] Start checking server connectivity.
+[2026-02-16 13:43:45Z INFO JobExtension] Check server connectivity for https://broker.actions.githubusercontent.com/health.
+[2026-02-16 13:43:45Z INFO JobExtension] Check server connectivity for https://token.actions.githubusercontent.com/ready.
+[2026-02-16 13:43:45Z INFO JobExtension] Check server connectivity for https://run.actions.githubusercontent.com/health.
+[2026-02-16 13:43:45Z INFO JobExtension] Start checking service connectivity in background.
+[2026-02-16 13:43:45Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "9fc0eaa2-7d5f-4d04-b542-e0b93c777ec8",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-02-16T13:43:45.8451953Z",
+  "finishTime": "2026-02-16T13:43:45.9536789Z"
+}.
+[2026-02-16 13:43:45Z INFO JobRunner] Total job steps: 2.
+[2026-02-16 13:43:45Z INFO JobRunner] Run all job steps.
+[2026-02-16 13:43:45Z INFO StepsRunner] Processing step: DisplayName='Deploy to server folder'
+[2026-02-16 13:43:45Z INFO StepsRunner] Evaluating: success()
+[2026-02-16 13:43:45Z INFO StepsRunner] Result: true
+[2026-02-16 13:43:45Z INFO StepsRunner] Starting the step.
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:45Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO StepsRunner] Which2: 'chcp'
+[2026-02-16 13:43:45Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper] Starting process:
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Working directory: 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-02-16 13:43:45Z INFO ProcessInvokerWrapper] Process started with process id 51296, waiting for process exit.
+[2026-02-16 13:43:45Z INFO Worker] Listening for cancel message from the channel.
+[2026-02-16 13:43:45Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper] Finished process 51296 with exit code 0, and elapsed time 00:00:00.0298385.
+[2026-02-16 13:43:46Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Temp': 'D:\pipeline_demo_3\actions-runner\_work\_temp'
+[2026-02-16 13:43:46Z INFO ExecutionContext] Write event payload to D:\pipeline_demo_3\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Temp': 'D:\pipeline_demo_3\actions-runner\_work\_temp'
+[2026-02-16 13:43:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command error
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command group
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-02-16 13:43:46Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-02-16 13:43:46Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-02-16 13:43:46Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-02-16 13:43:46Z INFO ScriptHandler] Defaulting to powershell
+[2026-02-16 13:43:46Z INFO ScriptHandler] Which2: 'powershell'
+[2026-02-16 13:43:46Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:46Z INFO HostContext] Well known directory 'Temp': 'D:\pipeline_demo_3\actions-runner\_work\_temp'
+[2026-02-16 13:43:46Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-02-16 13:43:46Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-02-16 13:43:46Z INFO ScriptHandler] Defaulting to powershell
+[2026-02-16 13:43:46Z INFO ScriptHandler] Which2: 'powershell'
+[2026-02-16 13:43:46Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper] Starting process:
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'D:\pipeline_demo_3\actions-runner\_work\_temp\71e70db5-1382-49a9-826d-b357e84422bb.ps1'"'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Working directory: 'D:\pipeline_demo_3\actions-runner\_work\pipeline_demo_3\pipeline_demo_3'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-02-16 13:43:46Z INFO ProcessInvokerWrapper] Process started with process id 51024, waiting for process exit.
+[2026-02-16 13:43:46Z INFO ResultServer] Successfully started websocket client.
+[2026-02-16 13:43:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fc0eaa2-7d5f-4d04-b542-e0b93c777ec8', success rate: 1/1.
+[2026-02-16 13:43:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '00ec94a8-a14d-4912-99d1-9851f9ef3d2a', success rate: 1/1.
+[2026-02-16 13:43:46Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-02-16 13:43:46Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\pipeline_demo_3\actions-runner\_diag\blocks\cbbd6f47-19c1-4144-bf6d-7031bca0ad4d_9fc0eaa2-7d5f-4d04-b542-e0b93c777ec8.1
+[2026-02-16 13:43:46Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-02-16 13:43:47Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2026-02-16 13:43:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '00ec94a8-a14d-4912-99d1-9851f9ef3d2a', success rate: 1/1.
+[2026-02-16 13:43:48Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] Finished process 51024 with exit code 0, and elapsed time 00:00:03.7397805.
+[2026-02-16 13:43:49Z INFO CreateStepSummaryCommand] Step Summary file (D:\pipeline_demo_3\actions-runner\_work\_temp\_runner_file_commands\step_summary_fb6cc5fa-2c7d-4b06-8db0-3ba2d5f1da56) is empty; skipping attachment upload
+[2026-02-16 13:43:49Z INFO StepsRunner] Step result: 
+[2026-02-16 13:43:49Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "00ec94a8-a14d-4912-99d1-9851f9ef3d2a",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2026-02-16T13:43:45.96353Z",
+  "finishTime": "2026-02-16T13:43:49.8267056Z"
+}.
+[2026-02-16 13:43:49Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-02-16 13:43:49Z INFO StepsRunner] Current state: job state = ''
+[2026-02-16 13:43:49Z INFO StepsRunner] Processing step: DisplayName='Restart app'
+[2026-02-16 13:43:49Z INFO StepsRunner] Evaluating: success()
+[2026-02-16 13:43:49Z INFO StepsRunner] Result: true
+[2026-02-16 13:43:49Z INFO StepsRunner] Starting the step.
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:49Z INFO StepsRunner] Which2: 'chcp'
+[2026-02-16 13:43:49Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] Starting process:
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Working directory: 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] Process started with process id 20488, waiting for process exit.
+[2026-02-16 13:43:49Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] Finished process 20488 with exit code 0, and elapsed time 00:00:00.0447659.
+[2026-02-16 13:43:49Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Temp': 'D:\pipeline_demo_3\actions-runner\_work\_temp'
+[2026-02-16 13:43:49Z INFO ExecutionContext] Write event payload to D:\pipeline_demo_3\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Temp': 'D:\pipeline_demo_3\actions-runner\_work\_temp'
+[2026-02-16 13:43:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-02-16 13:43:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command error
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command group
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-02-16 13:43:49Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-02-16 13:43:49Z INFO ScriptHandler] Which2: 'powershell'
+[2026-02-16 13:43:49Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Work': 'D:\pipeline_demo_3\actions-runner\_work'
+[2026-02-16 13:43:49Z INFO HostContext] Well known directory 'Temp': 'D:\pipeline_demo_3\actions-runner\_work\_temp'
+[2026-02-16 13:43:49Z INFO ScriptHandler] Which2: 'powershell'
+[2026-02-16 13:43:49Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] Starting process:
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'D:\pipeline_demo_3\actions-runner\_work\_temp\edb05213-8558-4cb7-a406-f88c3a192681.ps1'"'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Working directory: 'D:\pipeline_demo_3\actions-runner\_work\pipeline_demo_3\pipeline_demo_3'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-02-16 13:43:49Z INFO ProcessInvokerWrapper] Process started with process id 25156, waiting for process exit.
+[2026-02-16 13:43:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '00ec94a8-a14d-4912-99d1-9851f9ef3d2a', success rate: 1/1.
+[2026-02-16 13:43:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '5fbe60c0-295a-4b51-b088-93d0968b3abe', success rate: 1/1.
+[2026-02-16 13:43:50Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-02-16 13:43:50Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\pipeline_demo_3\actions-runner\_diag\blocks\cbbd6f47-19c1-4144-bf6d-7031bca0ad4d_00ec94a8-a14d-4912-99d1-9851f9ef3d2a.1
+[2026-02-16 13:43:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-02-16 13:43:51Z INFO ProcessInvokerWrapper] Finished process 25156 with exit code 1, and elapsed time 00:00:01.4506126.
+[2026-02-16 13:43:51Z INFO CreateStepSummaryCommand] Step Summary file (D:\pipeline_demo_3\actions-runner\_work\_temp\_runner_file_commands\step_summary_472cb779-2668-4a8c-b355-5b3bc507395e) is empty; skipping attachment upload
+[2026-02-16 13:43:51Z INFO StepsRunner] Step result: Failed
+[2026-02-16 13:43:51Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "5fbe60c0-295a-4b51-b088-93d0968b3abe",
+  "stepContextName": "__run_2",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 2,
+  "startTime": "2026-02-16T13:43:49.8277518Z",
+  "finishTime": "2026-02-16T13:43:51.3625918Z"
+}.
+[2026-02-16 13:43:51Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2026-02-16 13:43:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-02-16 13:43:51Z INFO JobRunner] Finalize job.
+[2026-02-16 13:43:51Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:51Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:51Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:51Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:51Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:51Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:51Z INFO JobExtension] Initialize Env context
+[2026-02-16 13:43:51Z INFO JobExtension] Initialize steps context
+[2026-02-16 13:43:51Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-02-16 13:43:51Z INFO JobExtension] Total accessible running process: 508.
+[2026-02-16 13:43:51Z INFO JobExtension] Inspecting process environment variables. PID: 44956 (git)
+[2026-02-16 13:43:51Z INFO JobExtension] Inspecting process environment variables. PID: 46820 (conhost)
+[2026-02-16 13:43:51Z INFO JobExtension] Inspecting process environment variables. PID: 18204 (git)
+[2026-02-16 13:43:51Z INFO JobExtension] Inspecting process environment variables. PID: 8888 (git)
+[2026-02-16 13:43:51Z INFO JobExtension] Inspecting process environment variables. PID: 30700 (git-remote-https)
+[2026-02-16 13:43:51Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2026-02-16 13:43:51Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-02-16 13:43:51Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-02-16 13:43:51Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-02-16 13:43:51Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "0c8a127a-d2aa-4b5a-8727-5fc102ff8730",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-02-16T13:43:51.3672642Z",
+  "finishTime": "2026-02-16T13:43:51.4106629Z"
+}.
+[2026-02-16 13:43:51Z INFO JobRunner] Job result after all job steps finish: Failed
+[2026-02-16 13:43:51Z INFO JobRunner] Completing the job execution context.
+[2026-02-16 13:43:51Z INFO JobRunner] Shutting down the job server queue.
+[2026-02-16 13:43:51Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2026-02-16 13:43:52Z INFO JobServerQueue] All queue process task stopped.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '5fbe60c0-295a-4b51-b088-93d0968b3abe', success rate: 1/1.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0c8a127a-d2aa-4b5a-8727-5fc102ff8730', success rate: 1/1.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Web console line queue drained.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2026-02-16 13:43:52Z INFO JobServerQueue] File upload queue drained.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-02-16 13:43:52Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-02-16 13:43:52Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\pipeline_demo_3\actions-runner\_diag\blocks\cbbd6f47-19c1-4144-bf6d-7031bca0ad4d_5fbe60c0-295a-4b51-b088-93d0968b3abe.1
+[2026-02-16 13:43:53Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-02-16 13:43:53Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\pipeline_demo_3\actions-runner\_diag\blocks\cbbd6f47-19c1-4144-bf6d-7031bca0ad4d_0c8a127a-d2aa-4b5a-8727-5fc102ff8730.1
+[2026-02-16 13:43:53Z INFO JobServerQueue] Got a job log file to send to results service.
+[2026-02-16 13:43:53Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, D:\pipeline_demo_3\actions-runner\_diag\blocks\cbbd6f47-19c1-4144-bf6d-7031bca0ad4d_05c71ffe-c069-5f4a-a4fa-af56bb49552c.1
+[2026-02-16 13:43:54Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2026-02-16 13:43:54Z INFO JobServerQueue] Results upload queue drained.
+[2026-02-16 13:43:55Z INFO JobServerQueue] Timeline update queue drained.
+[2026-02-16 13:43:55Z INFO JobServerQueue] Disposing job server ...
+[2026-02-16 13:43:55Z INFO JobServerQueue] Disposing results server ...
+[2026-02-16 13:43:55Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2026-02-16 13:43:55Z INFO TempDirectoryManager] Cleaning runner temp folder: D:\pipeline_demo_3\actions-runner\_work\_temp
+[2026-02-16 13:43:55Z INFO HostContext] Well known directory 'Bin': 'D:\pipeline_demo_3\actions-runner\bin'
+[2026-02-16 13:43:55Z INFO HostContext] Well known directory 'Root': 'D:\pipeline_demo_3\actions-runner'
+[2026-02-16 13:43:55Z INFO HostContext] Well known directory 'Diag': 'D:\pipeline_demo_3\actions-runner\_diag'
+[2026-02-16 13:43:55Z INFO HostContext] Well known config file 'Telemetry': 'D:\pipeline_demo_3\actions-runner\_diag\.telemetry'
+[2026-02-16 13:43:55Z INFO JobRunner] Raising job completed against run service
+[2026-02-16 13:43:55Z INFO Worker] Job completed.

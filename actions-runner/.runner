@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "CEI3418",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus2.actions.githubusercontent.com/Nqfm9UrxNN0Zm69c6QZlFUIEyzGys82Pcf5qKEKJs17PiL2t29/",
+  "gitHubUrl": "https://github.com/KaruppaiahAlagu/pipeline_demo_3",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}

@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "KaruppaiahAlagu/pipeline_demo_3",
+  "pipelineDirectory": "pipeline_demo_3",
+  "workspaceDirectory": "pipeline_demo_3\\pipeline_demo_3",
+  "repositories": {
+    "KaruppaiahAlagu/pipeline_demo_3": {
+      "repositoryPath": "pipeline_demo_3\\pipeline_demo_3",
+      "lastRunOn": "02/16/2026 19:12:41 +05:30"
+    }
+  },
+  "lastRunOn": "02/16/2026 19:13:45 +05:30"
+}

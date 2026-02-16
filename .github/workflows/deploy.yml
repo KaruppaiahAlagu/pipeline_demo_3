@@ -40,10 +40,4 @@ jobs:
       - name: Restart app
         shell: powershell
         run: |
-          pm2 describe pipeline-app > $null 2>&1
-          if ($LASTEXITCODE -ne 0) {
-            cd D:\pipeline_demo_3
-            pm2 start index.js --name pipeline-app
-          } else {
-            pm2 restart pipeline-app
-          }
+          pm2 start index.js --name pipeline-app
