@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 // Routes
 app.get('/', (req, res) => {
     res.json({
-        message: 'Allahuu akbar',
+        message: 'Allahuu akbar Karup',
         version: '1.0.0',
         endpoints: {
             health: '/health',
